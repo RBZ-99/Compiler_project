@@ -132,10 +132,11 @@ int search_hash_table(hash_table table, char *lexeme) {
 
 int searh_exists(char* lexeme)
 {
+	//printf(" in search exists %s \n",lexeme);
 	//enum nonterminal a1 = lexeme;
-	if(strcmp(lexeme,"MAINPROGRAM") == true) return 1;
-	else if(strcmp(lexeme,"MODULEDECLARATIONS") == true) return 2;
-		else if(strcmp(lexeme,"OTHERMODULES") == true) return 3;
+	if(strcmp(lexeme,"MAINPROGRAM") == 0) return 1;
+	else if(strcmp(lexeme,"MODULEDECLARATIONS") == 0) return 2;
+		else if(strcmp(lexeme,"OTHERMODULES") == 0) return 3;
 
 	else return 10000;
 }

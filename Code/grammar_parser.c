@@ -62,6 +62,7 @@ void grammar_fill(FILE *fptr) {
 	  if (i == 0) // LHS of a production
 	  {
 		grammar[rule_num].lhs = get_symbol(sym_read).nt;
+		printf(" in grammar_fill %d \n",grammar[rule_num].lhs);
 		grammar[rule_num].head = NULL;
 		grammar[rule_num].tail = NULL;
 	  } else {
@@ -78,15 +79,15 @@ void grammar_fill(FILE *fptr) {
 }
 
 
-
-
 symbol get_symbol(char str[]) {
   symbol sym;
   if ((str[0] >= 'A') && (str[0] <= 'Z')) {
 	sym.is_terminal = false;
 	//sym.nt = search_hash_table(non_terminal_table, str);
 	sym.nt = searh_exists(str);
-  } else {
+  } 
+  // LOWER CASE TO UPPER CASE
+  else {
 
 	sym.is_terminal = true;
 	char tmp[strlen(str)];
@@ -95,7 +96,7 @@ symbol get_symbol(char str[]) {
 	  tmp[i] = toupper(tmp[i]);
 	}
 	//sym.t = search_hash_table(terminal_table, tmp);
-	sym.nt = searh_exists(tmp);
+	sym.t = searh_exists(tmp);
   }
   return sym;
 }
