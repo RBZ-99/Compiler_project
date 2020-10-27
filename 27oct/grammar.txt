@@ -1,0 +1,48 @@
+﻿MAINPROGRAM DECLARATIONSTMTS ASSIGNMENTSTMTS
+DECLARATIONSTMTS DECLARATIONSTMT
+DECLARATIONSTMTS DECLARATIONSTMT DECLARATIONSTMTS
+ASSIGNMENTSTMTS ASSIGNMENTSTMT
+ASSIGNMENTSTMTS ASSIGNMENTSTMT ASSIGNMENTSTMTS
+DECLARATIONSTMT single_dec
+DECLARATIONSTMT multi_dec
+single_dec DECLARE var_id : TYPE ;
+single_dec DECLARE var_id : ARRAYTYPE ;
+multi_dec DECLARE LIST OF VARIABLES var_id variable_names : TYPE ;
+multi_dec DECLARE LIST OF VARIABLES variable_names : ARRAYTYPE ;
+TYPE integer
+TYPE boolean
+TYPE real
+variable_names var_id
+variable_names var_id variable_names
+ARRAYTYPE rectangular_array
+ARRAYTYPE jagged_array
+rectangular_array ARRAY RANGES OF TYPE
+RANGES [ RANGE ]
+RANGES [ RANGE ] RANGES
+RANGE INDEX .. INDEX
+INDEX num
+INDEX var_ID
+Jagged_array JAGGED ARRAY RANGE [ ] OF TYPE 
+Jagged_array ARRAY RANGE [ ] [ ] OF TYPE
+J_POPULATE_1 VARIABLE_ID [ num ] : SIZE num : VALUES { NUM_LIST }
+NUM_LIST num
+NUM_LIST num NUM_LIST
+NUM_LIST ; num NUM_LIST
+ASSIGNMENTSTMT id WHICHID = EXPRESSION ;
+WHICHID [ INDEX ] 
+WHICHID epsilon
+EXPRESSION ArithmeticOP 
+EXPRESSION LogicalOP
+ArithmeticOP ArithmeticOP AddSubOP TERM 
+ArithmeticOP TERM
+Term Term MultDivOP INDEX 
+Term INDEX
+AddSubOP + 
+AffSubOp -
+MultDivOp * 
+MultDivOp /
+LogicalOP LogicalOP ||| LogicalTerm
+LogicalOP LogicalTerm
+LogicalTerm LogicalTerm &&& LogicalFactor
+LogicalTerm LogicalFactor
+LogicalFactor bool
