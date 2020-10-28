@@ -22,7 +22,9 @@ typedef struct TREENODE
     tokenStream token;
     int num_child; // make this 0 when emptied
     bool visited;
-    
+    int depth;
+    union TypeExpression te;
+
   } tree_node;
 
 tree_node* create_tree_node();
