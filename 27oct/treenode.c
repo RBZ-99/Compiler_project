@@ -1,34 +1,9 @@
 # define GRAMMAR_SIZE 100 // check the final length of grammar which is not 100 atleast now
 # define HASHTAG 10000
 
-#include<string.h>
-#include "grammar_parser.h"
-#include "stackdef.h"
-//#include "lexer.h"
-#include<stdbool.h>
-#include <stdlib.h>
-
-typedef struct TREENODE
-  {
-    struct TREENODE *parent;
-    struct TREENODE *sibling;
-    struct TREENODE *leftmost_child;
-    struct TREENODE *rightmost_child;
-    
-    struct TREENODE *last_popped_nt;
-    int rule_no;
-
-    symbol sym; //simplify this
-    tokenStream token;
-    int num_child; // make this 0 when emptied
-    bool visited;
-    int depth;
-    union TypeExpression te;
-
-  } tree_node;
-
-tree_node* create_tree_node();
-
+#include<stdio.h>
+#include<stdlib.h>
+#include "treenode.h"
 
 void add_child(tree_node *parent, tree_node *child) {
   if (parent->rightmost_child == NULL) {

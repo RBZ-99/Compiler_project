@@ -44,5 +44,8 @@ typedef struct
 
 cell grammar[NUM_OF_RULES];
 symbol get_symbol(char str[]);
+int search_exists(char* lexeme);
+void insert_at_end(rhsnode_ptr *ptr_tail, symbol sym);
+void grammar_fill(FILE *fptr);
 
 #endif

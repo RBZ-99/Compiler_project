@@ -19,6 +19,8 @@ typedef struct TokenStreamHead{
   tokenStream* head;
 } tokenStreamHead;
 
-
+token_name give_token_enum(char* s);
+void tokeniseSourceCode(FILE *f, tokenStreamHead* streamHead);
+void printTokenStream(tokenStream* ts);
 
 
