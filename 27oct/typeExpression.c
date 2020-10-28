@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include"typeExpression.h"
 #include<stdbool.h>
-
+#include"treenode.h"
 # define MAX_VAR 100
 
 void traverseParseTree(parseTree* t){
@@ -36,13 +36,13 @@ void traverseParseTree(parseTree* t){
 
 }
 
-void traverse(TREENODE *root) {
+void traverse(tree_node *root) {
 	if (root == NULL)
 		return;
 	
     //print_node(root);
-	if(root->s.is_terminal == false){
-        if(root->s.nt == DECLARATIONSTMT){
+	if(root->sym.is_terminal == false){
+        if(root->sym.nt == DECLARATIONSTMT){
 
         //Populate the typeExpression table
         travreseDeclarestmt(root);
@@ -83,8 +83,36 @@ void traverseDeclareStmt(TREENODE* root){
         if(root->sym.t == VARID){
 
         }
-        if(root->sym.nt == RANGES){
+        else if(root->sym.t == RANGE){
             root->parent.te.jt.dim++;
+        }else if(root->sym.t == INTEGER){
+
+            if(root->parent->sym.nt == TYPE){
+
+                char* t = "INTEGER";
+                strncpy (root->parent->te.primTE.type,t,sizeof(t));
+
+            }else{
+
+                char* t = "INTEGER";
+                strncpy (root->parent->te.jt.type,t,sizeof(t));
+
+            }
+        }else if(root->sym.t == REAL){
+            
+            char* t = "REAL";
+            strncpy (root->parent->te.pt.type,t,sizeof(t));
+
+            
+        }else if(root->sym.t == BOOLEAN ){
+            
+            char* t = "BOOLEAN";
+            strncpy (root->parent->te.primTE.type,t,sizeof(t));
+            
+        }else if(root->sym.t == SEMICOL){
+
+            //We are the end of the line
+
         } 
 
     }else{ //NON TERMINALS
@@ -92,15 +120,34 @@ void traverseDeclareStmt(TREENODE* root){
         if(root->sym.nt == RANGES){
 
 
+        }else if(root->sym.nt == ){
+
+
+        }else if(root->sym.nt == ){
+
+
         }
 
 
 
     }
+        	
 
+	if (root->leftmost_child)
+  	{
+		tree_node *temp = root->leftmost_child->sibling;
 
+		while (temp != NULL) 
+		{
+			traverse(temp);
+			temp = temp->sibling;
+		}
+  	}
 
+    return;
 }
+
+
 
 
 

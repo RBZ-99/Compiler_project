@@ -28,9 +28,10 @@ typedef struct PrimTE{
 } primTE;
 
 union TypeExpression{
-        jaggedTE jt;
-        rectTE rt;
         primTE pt;
+        rectTE rt;
+        jaggedTE jt;
+        
 };
 
 typedef struct TypeExpressionCell{
