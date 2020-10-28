@@ -9,6 +9,9 @@ token_name give_token_enum(char* s){
     if(strcmp(s,"=")==0){
         t = ASSIGNOP;
     }
+    else if(strcmp(s,"program")==0){
+        t = PROGRAM;
+    }
     else if(strcmp(s,";")==0){
         t = SEMICOL;
     }
@@ -72,8 +75,8 @@ token_name give_token_enum(char* s){
     else if(strcmp(s,"values")==0){
         t = VALUES;
     }
-    else if(strcmp(s,"jagged")==0){
-        t = JAGGED;
+    else if(strcmp(s,"jagged array")==0){
+        t = JAGGED_ARRAY;
     }
     else if(strcmp(s,"integer")==0){
         t = INTEGER;
@@ -92,6 +95,9 @@ token_name give_token_enum(char* s){
     }
     else if(strcmp(s,"..")==0){
         t = RANGEOP;
+    }
+    else if(strcmp(s,"R1")==0){
+        t = R1;
     }
     else{
         int length = strlen(s);
@@ -112,10 +118,10 @@ token_name give_token_enum(char* s){
                 }
             }
             if(id_flag==0){
-                t= VARID; //Identifier token
+                t= VAR_ID; //Identifier token
             }
             else{
-                t= INT_MAX; //Unknown token
+                t= UNKNOWN; //Unknown token
             }    
         }
         else if(isdigit(s[0])){
@@ -157,7 +163,7 @@ token_name give_token_enum(char* s){
         }
         else
         {
-            t = INT_MAX;
+            t = UNKNOWN;
         }
     }
     

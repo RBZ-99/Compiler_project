@@ -23,6 +23,7 @@ int main(int argc, char *argv[]) {
 
 	while (true) {
 		print_menu();
+		printf("Enter Choice: ")
 		scanf("%d", &choice);
 		printf("\n");
 
@@ -64,6 +65,14 @@ int main(int argc, char *argv[]) {
 			
 			case 3:
 			{
+				pretty_print("Symbol Name");
+				pretty_print("Terminal/Non Terminal");
+    			pretty_print("Type Expression");
+    			pretty_print("Name of lexeme");
+    			pretty_print("Line Number");
+    			pretty_print("Grammar Rule");
+    			pretty_print("Depth of node");
+    			printf("\n\n");
                 FILE *fptr = fopen("grammar.txt", "r");
 				if(fptr == NULL) 
 				{
