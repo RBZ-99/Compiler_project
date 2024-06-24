@@ -1,2 +1,2 @@
-# PPL_Assignment1
-PPL
+# Compilter Project
+Custom Compiler built from scratch in C
